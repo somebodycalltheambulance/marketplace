@@ -11,3 +11,11 @@ def create_phone(db: Session, phone_data: PhoneCreate) -> Phone:
 
 def get_all_phones(db: Session):
     return db.query(Phone).all()
+
+def delete_phone(db:Session, phone_id: int):
+    phone = db.query(Phone).filter(Phone.id==phone_id).first()
+    if not phone:
+        return None
+    db.delete(phone)
+    db.commit()
+    return phone
