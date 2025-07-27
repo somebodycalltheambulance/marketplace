@@ -3,6 +3,7 @@ import enum
 from models import Base
 
 
+
 class RoleEnum(enum.Enum):
     user = "user"
     admin = "admin"
@@ -21,3 +22,4 @@ class User(Base):
 
     def __str__(self):
         return self.username
+    

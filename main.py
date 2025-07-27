@@ -4,6 +4,7 @@ from api.categories import router as category_router
 from api import auth
 from api.authenticate import auth_router
 
+
 app = FastAPI(title="MARKETPLACE")
 
 #ПОДКЛЮЧАЕМ РОУТЫ СЮДА
