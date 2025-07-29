@@ -6,6 +6,7 @@ from api.authenticate import auth_router
 from sqladmin import Admin
 from db.session import engine
 from admin.resources import UserAdmin
+from admin.admin_views import PhoneAdmin, UserAdmin, CategoryAdmin, HeadphoneAdmin, AccessoryAdmin
 from sqladmin.authentication import AuthenticationBackend
 from starlette.requests import Request
 from starlette.responses import RedirectResponse
@@ -42,3 +43,7 @@ app.include_router(category_router, tags = ["Categories"])
 auth_backend = AdminAuth(secret_key=settings.JWT_SECRET)
 admin = Admin(app, engine, authentication_backend=auth_backend)
 admin.add_view(UserAdmin)
+admin.add_view(CategoryAdmin)
+admin.add_view(PhoneAdmin)
+admin.add_view(HeadphoneAdmin)
+admin.add_view(AccessoryAdmin)
