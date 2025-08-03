@@ -1,10 +1,7 @@
 from sqladmin import ModelView
 from models.user import User
 from models.category import Category
-from models.phone import Phone
-from models.accessories import Accessory
-from models.headphones import Headphone
-
+from models.models_base import Phone, Accessory, Headphone
 
 
 class UserAdmin(ModelView, model=User):

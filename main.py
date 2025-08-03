@@ -11,6 +11,7 @@ from sqladmin.authentication import AuthenticationBackend
 from starlette.requests import Request
 from starlette.responses import RedirectResponse
 from core.config import settings
+from api.admin_routes import router as admin_product_router
 
 class AdminAuth(AuthenticationBackend):
     def __init__(self, secret_key: str):
@@ -38,6 +39,7 @@ app.include_router(auth.router, prefix="", tags=["Auth"])
 app.include_router(auth_router, tags = ["Auth"])
 app.include_router(phones_router, tags = ["Phones"])
 app.include_router(category_router, tags = ["Categories"])
+app.include_router(admin_product_router)
 
 
 auth_backend = AdminAuth(secret_key=settings.JWT_SECRET)
